@@ -9,7 +9,7 @@ public class Ayuntamiento {
 
 		private String Localidad;		
 		private String Alcalde;
-		private String Govierno;	
+		private String Gobierno;	
 		private int Populacion;
 		private int Censo;
 		private String Cod_postal;
@@ -45,14 +45,14 @@ public class Ayuntamiento {
 
 //--------------------govierno--------------------------------
 
-		public String getGovierno()
+		public String getGobierno()
 		{
-			return Govierno;
+			return Gobierno;
 		}
 		
-		public void  setGovierno(String govierno1)
+		public void  setGobierno(String gobierno1)
 		{
-			Govierno=govierno1;
+			Gobierno=gobierno1;
 		}
 
 
