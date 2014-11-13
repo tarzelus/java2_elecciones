@@ -87,7 +87,7 @@ public class Eleccionest {
 		String nombrefichero2 = "censo.txt";	
 		String ruta2 ="/home/zubiri/Proyectosjava/java2_elecciones";
 		ArrayList<Habitante> habitantes = new ArrayList<Habitante>();
-
+		
 
 		
 
@@ -113,10 +113,13 @@ public class Eleccionest {
 			habi.setNombre(cortarString[1]);
 			habi.setApellido(cortarString[2]);
 			habi.setEdad(Integer.parseInt(cortarString[3]));
-				
+
+			if (Integer.parseInt(cortarString[3]) >= 18){
+				habitantes.add(habi);
+			}
 			
 			//el valor que se le ha dado a cada atributo se lo pasa al objeto de tipo arraylist de partido
-			habitantes.add(habi);
+			
 
 						
 
