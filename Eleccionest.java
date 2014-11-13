@@ -13,9 +13,11 @@ public class Eleccionest {
 
 		Scanner sc = new Scanner(System.in);
 
-		//-------------------------------------------habitante------------------------------------------------	
+		//-------------------------------------------habitante------------------------------------------------
 		
-		/*String DNI, nombre, apellido, denuevo;
+
+
+		String DNI, nombre, apellido, denuevo;
 		int edad;
 		
 		Habitante habitante = new Habitante();
@@ -36,69 +38,106 @@ public class Eleccionest {
 
 		
 
-		//pregunta por primera vez para escribir el nombre del habitante y pregunta para agregar un nombre mas a la lista
-		do{
-		
-		//comprueba que el DNI inglresado tiene el numero de caracteres que tiene que tener un DNI		
+			//pregunta por primera vez para escribir el nombre del habitante y pregunta para agregar un nombre mas a la lista
 			do{
-				System.out.print("\ningresa el numero del DNI con letra (8 numeros y 1 letra): ");
-				DNI = sc.next();
-				habitante.setDni(DNI);
-			} while (DNI.length() >9 || DNI.length() < 9);
+		
+			//comprueba que el DNI inglresado tiene el numero de caracteres que tiene que tener un DNI		
+				do{
+					System.out.print("\ningresa el numero del DNI con letra (8 numeros y 1 letra): ");
+					DNI = sc.next();
+					habitante.setDni(DNI);
+				} while (DNI.length() >9 || DNI.length() < 9);
 			
-			bw.write(DNI + ",");
+				bw.write(DNI + ",");
 
-			System.out.print("\ningresa el Nombre del habitante: ");
-			nombre = sc.next();
-			habitante.setNombre(nombre);
-			bw.write(nombre + ",");
+				System.out.print("\ningresa el Nombre del habitante: ");
+				nombre = sc.next();
+				habitante.setNombre(nombre);
+				bw.write(nombre + ",");
 			
-			System.out.print("\ningresa el apellido del hahbitante: ");
-			apellido = sc.next();
-			habitante.setApellido(apellido);
-			bw.write(apellido + ",");
+				System.out.print("\ningresa el apellido del hahbitante: ");
+				apellido = sc.next();
+				habitante.setApellido(apellido);
+				bw.write(apellido + ",");
 
-			System.out.print("\ningresa la fecha de nacimiento del habitante: ");
-			edad = sc.nextInt();
-			habitante.setEdad(edad);
-			bw.write(edad + "\n");
+				System.out.print("\ningresa la fecha de nacimiento del habitante: ");
+				edad = sc.nextInt();
+				habitante.setEdad(edad);
+				bw.write(edad + "\n");
 
-			bw.close();
-			System.out.print("\nquieres insertar otro habitante? (si/no)");
-			denuevo = sc.next();
+				bw.close();
+				System.out.print("\nquieres insertar otro habitante? (si/no)");
+				denuevo = sc.next();
 		
 
-		}while (denuevo.equalsIgnoreCase("si"));
+			}while (denuevo.equalsIgnoreCase("si"));
 
 		
 
 			
         	}
-		 catch (FileNotFoundException e) 
+		catch (FileNotFoundException e) 
 		{
            		 System.out.println(e.getMessage());
-        	}
+        }
 
 
 		
 
+		String nombrefichero2 = "censo.txt";	
+		String ruta2 ="/home/zubiri/Proyectosjava/java2_elecciones";
+		ArrayList<Habitante> habitantes = new ArrayList<Habitante>();
+
+
+		
+
+			
+		//lectura del fichero censo.txt	
+		File archivo2 = new File(ruta2, nombrefichero2);
+		FileReader leer2 = new FileReader (archivo2);
+		BufferedReader bf2 = new BufferedReader(leer2);
+		String salida2 = bf2.readLine();
+ 
+
+		
+		do
+		{
+			// se le da valor a la variable de salida de tipo string de la linea que lee
+				
+			//Coje el valor de string que tiene la linea completa y lo divide en diferentes secciones
+			String [] cortarString = salida2.split(",");	
+			
+			//se le da valor a cada tributo del partido
+			Habitante habi = new Habitante(); 
+			habi.setDni(cortarString[0]);
+			habi.setNombre(cortarString[1]);
+			habi.setApellido(cortarString[2]);
+			habi.setEdad(Integer.parseInt(cortarString[3]));
+				
+			
+			//el valor que se le ha dado a cada atributo se lo pasa al objeto de tipo arraylist de partido
+			habitantes.add(habi);
+
+						
+
+		} while ((salida2 = bf2.readLine()) != null);
+
+     
+
+
+		for(int t=0; t<habitantes.size(); t++)
+        {
+            System.out.println("  ----------------------\n");
+            System.out.println("  |  Dni "+habitantes.get(t).getDni() );
+            System.out.println("  |  nombre:: "+habitantes.get(t).getNombre());
+            System.out.println("  |  Apellido: "+ habitantes.get(t).getApellido());
+            System.out.println("  |  Edad: "+ habitantes.get(t).getEdad());
+        }	
+			
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*
 
 
 
@@ -199,7 +238,7 @@ public class Eleccionest {
 		censo = sc.nextInt();
 		ayuntamiento.setCenso(censo);
 
-		*/
+		
 		//-----------------------------------------partidos---------------------------------------------
 
 
