@@ -82,7 +82,7 @@ public class Eleccionest {
         }
 
 
-		
+//lectura del fichero censo.txt y metiendo los datos en el array de habitantes	
 
 		String nombrefichero2 = "censo.txt";	
 		String ruta2 ="/home/zubiri/Proyectosjava/java2_elecciones";
@@ -116,7 +116,7 @@ public class Eleccionest {
 			//si el habitante introducido es mayor de edad lo añadira al censo
 			if (Integer.parseInt(cortarString[3]) >= 18){
 
-				//el valor que se le ha dado a cada atributo se lo pasa al objeto de tipo arraylist de partido
+				//el valor que se le ha dado a cada atributo se lo pasa al objeto de tipo arraylist de habitantes
 				habitantes.add(habi);
 			}
 			
@@ -128,6 +128,8 @@ public class Eleccionest {
 		} while ((salida2 = bf2.readLine()) != null);
 		//la condicion del while es que seguira ejecutando siempre que tenga escrita la siguiente linea
      
+
+//------------------------------impresion del array habitantes-----------------------------------------
 
      	System.out.println("Estos son los datos de los censados: ");
 
